@@ -1,0 +1,18 @@
+Описание: Заставляет вашего персонажа парить в воздухе.
+
+Инструкция: Вставьте этот скрипт в любую игру, используя Lua-исполнитель, такой как JJSploit.
+Повторите выполнение для включения и выключения.
+]]
+
+player = game:GetService("Players").LocalPlayer
+
+--Remove BodyVelocity, чтобы удалить поплавок
+if player.Character.HumanoidRootPart:FindFirstChild("WRDBodyVelocity") then
+    player.Character.HumanoidRootPart.WRDBodyVelocity:Destroy()
+Вставьте BodyVelocity, чтобы добавить поплавок
+else
+    local bodyVelocity = Instance.new("BodyVelocity")
+    --So we know what specific instance to remove when toggle off
+    bodyVelocity.Name = "WRDBodyVelocity"
+    bodyVelocity.Parent = player.Character.HumanoidRootPart
+end
